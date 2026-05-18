@@ -14,7 +14,7 @@ environ.Env.read_env(
 
 SECRET_KEY = "SEcretissima!"   # config('SECRET_KEY')
 
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = False # config('DEBUG', cast=bool)
 
 
 ALLOWED_HOSTS = [
