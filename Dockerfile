@@ -11,6 +11,8 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN mkdir -p /app/staticfiles
+
 EXPOSE 3000
 
 CMD ["gunicorn", "--bind", "0.0.0.0:3000", "project.wsgi:application"]
