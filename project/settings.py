@@ -18,17 +18,14 @@ DEBUG = False # config('DEBUG', cast=bool)
 
 
 ALLOWED_HOSTS = [
+    'peter.pw.deisi.ulusofona.pt',
     'localhost',
     '127.0.0.1',
-    'peter.pw.deisi.ulusofona.pt',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://peter.pw.deisi.ulusofona.pt',
-    CSRF_TRUSTED_ORIGINS = [
-    'https://peter.pw.deisi.ulusofona.pt',
     'http://peter.pw.deisi.ulusofona.pt',
-]
 ]
 
 SITE_ID = 1
