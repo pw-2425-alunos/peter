@@ -84,23 +84,8 @@ jobs:
               -e CLOUDINARY_API_SECRET="${{ secrets.CLOUDINARY_API_SECRET }}" \
               ghcr.io/${{ env.REPOSITORY }}/${{ github.event.repository.name }}:latest
 
-
             sleep 15
 
             docker exec peter python manage.py collectstatic --noinput
 
-            docker exec peter python manage.py migrate sites --fake
-
-            docker exec peter python manage.py migrate
-
-            docker exec peter python manage.py shell -c "
-            from django.contrib.sites.models import Site;
-            site = Site.objects.get(id=1);
-            site.domain='peter.pw.deisi.ulusofona.pt';
-            site.name='peter.pw.deisi.ulusofona.pt';
-            site.save();
-            print(site.domain)
-            "
-
             docker logs peter
-

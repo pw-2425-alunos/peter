@@ -29,8 +29,6 @@ CSRF_TRUSTED_ORIGINS = [
     'http://peter.pw.deisi.ulusofona.pt',
 ]
 
-SITE_ID = 1
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -47,7 +45,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +142,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
+
 LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
