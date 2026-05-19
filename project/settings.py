@@ -12,9 +12,9 @@ environ.Env.read_env(
     os.path.join(BASE_DIR, '.env')
 )
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = "SEcretissima!"   # config('SECRET_KEY')
 
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = False # config('DEBUG', cast=bool)
 
 
 ALLOWED_HOSTS = [
@@ -110,7 +110,6 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_DIRS = [
@@ -122,7 +121,6 @@ WHITENOISE_USE_FINDERS = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),

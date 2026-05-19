@@ -32,7 +32,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
+RUN mkdir -p /app/staticfiles
 
 EXPOSE 3000
 
