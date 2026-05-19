@@ -25,6 +25,10 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://peter.pw.deisi.ulusofona.pt',
+    CSRF_TRUSTED_ORIGINS = [
+    'https://peter.pw.deisi.ulusofona.pt',
+    'http://peter.pw.deisi.ulusofona.pt',
+]
 ]
 
 SITE_ID = 1
