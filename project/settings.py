@@ -12,7 +12,8 @@ environ.Env.read_env(
     os.path.join(BASE_DIR, '.env')
 )
 
-SECRET_KEY = "SEcretissima!"   # config('SECRET_KEY')
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', cast=bool)
 
 DEBUG = False # config('DEBUG', cast=bool)
 
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +145,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "https"
 LOGIN_URL = 'accounts:login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
