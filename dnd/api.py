@@ -5,12 +5,6 @@ from .schemas import CampanhaSchema, CampanhaCreateSchema
 router = Router()
 
 
-# GET ALL
-@router.get("/campanhas", response=list[CampanhaSchema])
-def listar_campanhas(request):
-    return Campanha.objects.all()
-
-
 # GET ONE
 @router.get("/campanhas/{campanha_id}", response=CampanhaSchema)
 def obter_campanha(request, campanha_id: int):

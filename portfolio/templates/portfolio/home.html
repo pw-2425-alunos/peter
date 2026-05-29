@@ -23,14 +23,23 @@
                 <p>Engenharia Informática</p>
             </div>
 
-           <nav class="menu">
+            <nav class="menu">
 
                 <a href="{% url 'sobre_aplicacao' %}" class="menu-link">
                     Sobre esta Aplicação
                 </a>
 
+                <a href="/api/docs">
+                    API RESTful (Swagger)
+                </a>
+
                 <a href="{% url 'artigos:lista_artigos' %}">
-                     Artigos
+                    Artigos
+                </a>
+
+                <a href="#licenciaturas">Licenciaturas</a>
+                <a href="{% url 'artigos:lista_artigos' %}">
+                    Artigos
                 </a>
 
                 <a href="#licenciaturas">Licenciaturas</a>
@@ -39,19 +48,22 @@
 
                 <a href="#tecnologias">Tecnologias</a>
 
-                <a href="{% url 'lista_tecnologias' %}" class="btn btn-warning btn-sm" style="margin-left: 20px; margin-top: 5px;">
+                <a href="{% url 'lista_tecnologias' %}" class="btn btn-warning btn-sm"
+                    style="margin-left: 20px; margin-top: 5px;">
                     ⛏️ALTERAR⛏️
                 </a>
 
                 <a href="#competencias">Competências</a>
 
-                <a href="{% url 'lista_competencias' %}" class="btn btn-warning btn-sm" style="margin-left: 20px; margin-top: 5px;">
+                <a href="{% url 'lista_competencias' %}" class="btn btn-warning btn-sm"
+                    style="margin-left: 20px; margin-top: 5px;">
                     ⛏️ALTERAR⛏️
                 </a>
 
                 <a href="#formacoes">Formações</a>
 
-                <a href="{% url 'lista_formacoes' %}" class="btn btn-warning btn-sm" style="margin-left: 20px; margin-top: 5px;">
+                <a href="{% url 'lista_formacoes' %}" class="btn btn-warning btn-sm"
+                    style="margin-left: 20px; margin-top: 5px;">
                     ⛏️ALTERAR⛏️
                 </a>
 
@@ -61,7 +73,8 @@
 
                 <a href="#projetos">Projetos</a>
 
-                <a href="{% url 'lista_projetos' %}" class="btn btn-warning btn-sm" style="margin-left: 20px; margin-top: 5px;">
+                <a href="{% url 'lista_projetos' %}" class="btn btn-warning btn-sm"
+                    style="margin-left: 20px; margin-top: 5px;">
                     ⛏️ALTERAR⛏️
                 </a>
 
@@ -78,361 +91,358 @@
 
         <main class="main-content">
 
-        <a href="{% provider_login_url 'google' %}" class="google-home-btn">
-            Login com Google
-        </a>
-
-    <section class="content-section" id="licenciaturas">
+            <a href="{% provider_login_url 'google' %}" class="google-home-btn">
+                Login com Google
+            </a>
 
             <section class="content-section" id="licenciaturas">
-                <div class="section-header">
-                    <h2>Licenciaturas</h2>
-                    <p>Informação sobre o percurso académico principal.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in licenciaturas %}
-                    <article class="card">
 
-                        {% if item.imagem %}
-                        <a href="{% url 'licenciatura_detail' item.id %}">
-                            <img src="{{ item.imagem.url }}" alt="{{ item.nome }}">
-                        </a>
-                        {% endif %}
+                <section class="content-section" id="licenciaturas">
+                    <div class="section-header">
+                        <h2>Licenciaturas</h2>
+                        <p>Informação sobre o percurso académico principal.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in licenciaturas %}
+                        <article class="card">
 
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'licenciatura_detail' item.id %}">
-                                    {{ item.nome }}
-                                </a>
-                            </h3>
-
-                            <p>{{ item.descricao|truncatechars:140 }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem licenciaturas.</div>
-                    {% endfor %}
-                </div>
-            </section>
-
-            <section class="content-section" id="ucs">
-                <div class="section-header">
-                    <h2>Unidades Curriculares</h2>
-                    <p>Base académica e técnica do teu percurso.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in ucs %}
-                    <article class="card">
-
-                        {% if item.imagem %}
-                        <a href="{% url 'unidade_curricular_detail' item.id %}">
-                            <img src="{{ item.imagem.url }}" alt="{{ item.nome }}">
-                        </a>
-                        {% endif %}
-
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'unidade_curricular_detail' item.id %}">
-                                    {{ item.nome }}
-                                </a>
-                            </h3>
-
-                            <p>{{ item.apresentacao|truncatechars:140 }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem unidades curriculares.</div>
-                    {% endfor %}
-                </div>
-            </section>
-
-            <section class="content-section" id="tecnologias">
-                <div class="section-header">
-                    <h2>Tecnologias</h2>
-                    <p>Ferramentas e linguagens utilizadas ao longo do curso.</p>
-                </div>
-                <div class="card-grid small-grid">
-                    {% for item in tecnologias %}
-                    <article class="mini-card">
-
-                        {% if item.logo %}
-                        <a href="{% url 'tecnologia_detail' item.id %}">
-                            <img src="{{ item.logo.url }}" alt="{{ item.nome }}">
-                        </a>
-                        {% endif %}
-
-                        <h3>
-                            <a href="{% url 'tecnologia_detail' item.id %}">
-                                {{ item.nome }}
+                            {% if item.imagem %}
+                            <a href="{% url 'licenciatura_detail' item.id %}">
+                                <img src="{{ item.imagem.url }}" alt="{{ item.nome }}">
                             </a>
-                        </h3>
+                            {% endif %}
 
-                        <p>{{ item.descricao|truncatechars:90 }}</p>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem tecnologias.</div>
-                    {% endfor %}
-                </div>
-            </section>
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'licenciatura_detail' item.id %}">
+                                        {{ item.nome }}
+                                    </a>
+                                </h3>
 
-            <section class="content-section" id="competencias">
-                <div class="section-header">
-                    <h2>Competências</h2>
-                    <p>Capacidades desenvolvidas ao longo do percurso.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in competencias %}
-                    <article class="card">
-                        <div class="card-body">
+                                <p>{{ item.descricao|truncatechars:140 }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem licenciaturas.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="ucs">
+                    <div class="section-header">
+                        <h2>Unidades Curriculares</h2>
+                        <p>Base académica e técnica do teu percurso.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in ucs %}
+                        <article class="card">
+
+                            {% if item.imagem %}
+                            <a href="{% url 'unidade_curricular_detail' item.id %}">
+                                <img src="{{ item.imagem.url }}" alt="{{ item.nome }}">
+                            </a>
+                            {% endif %}
+
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'unidade_curricular_detail' item.id %}">
+                                        {{ item.nome }}
+                                    </a>
+                                </h3>
+
+                                <p>{{ item.apresentacao|truncatechars:140 }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem unidades curriculares.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="tecnologias">
+                    <div class="section-header">
+                        <h2>Tecnologias</h2>
+                        <p>Ferramentas e linguagens utilizadas ao longo do curso.</p>
+                    </div>
+                    <div class="card-grid small-grid">
+                        {% for item in tecnologias %}
+                        <article class="mini-card">
+
+                            {% if item.logo %}
+                            <a href="{% url 'tecnologia_detail' item.id %}">
+                                <img src="{{ item.logo.url }}" alt="{{ item.nome }}">
+                            </a>
+                            {% endif %}
+
                             <h3>
-                                <a href="{% url 'competencia_detail' item.id %}">
+                                <a href="{% url 'tecnologia_detail' item.id %}">
                                     {{ item.nome }}
                                 </a>
                             </h3>
-                            <p>{{ item.descricao|truncatechars:140 }}</p>
-                            <p><strong>Nível:</strong> {{ item.nivel }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem competências.</div>
-                    {% endfor %}
-                </div>
-            </section>
 
-            <section class="content-section" id="formacoes">
-                <div class="section-header">
-                    <h2>Formações</h2>
-                    <p>Formações complementares e percursos relevantes.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in formacoes %}
-                    <article class="card">
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'formacao_detail' item.id %}">
-                                    {{ item.nome }}
-                                </a>
-                            </h3>
-                            <p>{{ item.instituicao }}</p>
-                            <p>{{ item.descricao|truncatechars:120 }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem formações.</div>
-                    {% endfor %}
-                </div>
-            </section>
+                            <p>{{ item.descricao|truncatechars:90 }}</p>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem tecnologias.</div>
+                        {% endfor %}
+                    </div>
+                </section>
 
-            <section class="content-section" id="areas">
-                <div class="section-header">
-                    <h2>Áreas de Interesse</h2>
-                    <p>Temas e domínios que despertam maior interesse.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in areas_interesse %}
-                    <article class="card">
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'area_interesse_detail' item.id %}">
-                                    {{ item.nome }}
-                                </a>
-                            </h3>
-                            <p>{{ item.descricao|truncatechars:140 }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem áreas de interesse.</div>
-                    {% endfor %}
-                </div>
-            </section>
+                <section class="content-section" id="competencias">
+                    <div class="section-header">
+                        <h2>Competências</h2>
+                        <p>Capacidades desenvolvidas ao longo do percurso.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in competencias %}
+                        <article class="card">
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'competencia_detail' item.id %}">
+                                        {{ item.nome }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.descricao|truncatechars:140 }}</p>
+                                <p><strong>Nível:</strong> {{ item.nivel }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem competências.</div>
+                        {% endfor %}
+                    </div>
+                </section>
 
-            <section class="content-section" id="tfcs">
-                <div class="section-header">
-                </div>
-                <div class="card-grid">
-                    {% for item in tfcs %}
-                    <article class="card">
+                <section class="content-section" id="formacoes">
+                    <div class="section-header">
+                        <h2>Formações</h2>
+                        <p>Formações complementares e percursos relevantes.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in formacoes %}
+                        <article class="card">
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'formacao_detail' item.id %}">
+                                        {{ item.nome }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.instituicao }}</p>
+                                <p>{{ item.descricao|truncatechars:120 }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem formações.</div>
+                        {% endfor %}
+                    </div>
+                </section>
 
-                        {% if item.imagem %}
-                        <a href="{% url 'tfc_detail' item.id %}">
-                            <img src="{{ item.imagem.url }}" alt="{{ item.titulo }}">
+                <section class="content-section" id="areas">
+                    <div class="section-header">
+                        <h2>Áreas de Interesse</h2>
+                        <p>Temas e domínios que despertam maior interesse.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in areas_interesse %}
+                        <article class="card">
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'area_interesse_detail' item.id %}">
+                                        {{ item.nome }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.descricao|truncatechars:140 }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem áreas de interesse.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="tfcs">
+                    <div class="section-header">
+                    </div>
+                    <div class="card-grid">
+                        {% for item in tfcs %}
+                        <article class="card">
+
+                            {% if item.imagem %}
+                            <a href="{% url 'tfc_detail' item.id %}">
+                                <img src="{{ item.imagem.url }}" alt="{{ item.titulo }}">
+                            </a>
+                            {% endif %}
+
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'tfc_detail' item.id %}">
+                                        {{ item.titulo }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.resumo|truncatechars:140 }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem TFCs.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="projetos">
+                    <div class="section-header">
+                        <h2>Projetos</h2>
+                        <p>Projetos desenvolvidos durante o curso e fora dele.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in projetos %}
+                        <article class="card">
+
+                            {% if item.imagem %}
+                            <a href="{% url 'projeto_detail' item.id %}">
+                                <img src="{{ item.imagem.url }}" alt="{{ item.titulo }}">
+                            </a>
+                            {% endif %}
+
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'projeto_detail' item.id %}">
+                                        {{ item.titulo }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.descricao|truncatechars:140 }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem projetos.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="makingof">
+                    <div class="section-header">
+                        <h2>Making Of</h2>
+                        <p>Registos do processo de construção do trabalho.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in makingofs %}
+                        <article class="card">
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'makingof_detail' item.id %}">
+                                        {{ item.titulo }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.descricao|truncatechars:140 }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem making of.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="midias">
+                    <div class="section-header">
+                        <h2>Mídia</h2>
+                        <p>Imagens, ficheiros e recursos de apoio.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in midias %}
+                        <article class="card">
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'midia_detail' item.id %}">
+                                        {{ item.titulo }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.descricao|truncatechars:120 }}</p>
+                                <p><strong>Tipo:</strong> {{ item.tipo }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem mídia.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="docentes">
+                    <div class="section-header">
+                        <h2>Docentes</h2>
+                        <p>Docentes que marcaram o percurso académico.</p>
+                    </div>
+                    <div class="card-grid">
+                        {% for item in docentes %}
+                        <article class="card">
+
+                            {% if item.foto %}
+                            <a href="{% url 'docente_detail' item.id %}">
+                                <img src="{{ item.foto.url }}" alt="{{ item.nome }}">
+                            </a>
+                            {% endif %}
+
+                            <div class="card-body">
+                                <h3>
+                                    <a href="{% url 'docente_detail' item.id %}">
+                                        {{ item.nome }}
+                                    </a>
+                                </h3>
+                                <p>{{ item.area_especializacao }}</p>
+                            </div>
+                        </article>
+                        {% empty %}
+                        <div class="empty-message">Sem docentes.</div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section class="content-section" id="contactos">
+                    <div class="section-header">
+                        <h2>Conecte-se comigo</h2>
+                        <p>Redes, contactos e presença profissional.</p>
+                    </div>
+
+                    <div class="card-grid small-grid">
+
+                        <a href="https://github.com/Peter-Petrov-21407097" target="_blank" class="social-card">
+                            <h3>GITHUB</h3>
+                            <p>Repositórios, CI/CD e desenvolvimento full-stack.</p>
                         </a>
-                        {% endif %}
 
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'tfc_detail' item.id %}">
-                                    {{ item.titulo }}
-                                </a>
-                            </h3>
-                            <p>{{ item.resumo|truncatechars:140 }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem TFCs.</div>
-                    {% endfor %}
-                </div>
-            </section>
-
-            <section class="content-section" id="projetos">
-                <div class="section-header">
-                    <h2>Projetos</h2>
-                    <p>Projetos desenvolvidos durante o curso e fora dele.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in projetos %}
-                    <article class="card">
-
-                        {% if item.imagem %}
-                        <a href="{% url 'projeto_detail' item.id %}">
-                            <img src="{{ item.imagem.url }}" alt="{{ item.titulo }}">
+                        <a href="https://discord.com/users/Condutas.3580" class="social-card">
+                            <h3>DISCORD</h3>
+                            <p>Comunidade, networking e contacto.</p>
                         </a>
-                        {% endif %}
+                    </div>
+                </section>
 
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'projeto_detail' item.id %}">
-                                    {{ item.titulo }}
-                                </a>
-                            </h3>
-                            <p>{{ item.descricao|truncatechars:140 }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem projetos.</div>
-                    {% endfor %}
-                </div>
-            </section>
 
-            <section class="content-section" id="makingof">
-                <div class="section-header">
-                    <h2>Making Of</h2>
-                    <p>Registos do processo de construção do trabalho.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in makingofs %}
-                    <article class="card">
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'makingof_detail' item.id %}">
-                                    {{ item.titulo }}
-                                </a>
-                            </h3>
-                            <p>{{ item.descricao|truncatechars:140 }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem making of.</div>
-                    {% endfor %}
-                </div>
-            </section>
+                <script>
+                    const sections = document.querySelectorAll("section[id]");
+                    const navLinks = document.querySelectorAll(".menu a");
 
-            <section class="content-section" id="midias">
-                <div class="section-header">
-                    <h2>Mídia</h2>
-                    <p>Imagens, ficheiros e recursos de apoio.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in midias %}
-                    <article class="card">
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'midia_detail' item.id %}">
-                                    {{ item.titulo }}
-                                </a>
-                            </h3>
-                            <p>{{ item.descricao|truncatechars:120 }}</p>
-                            <p><strong>Tipo:</strong> {{ item.tipo }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem mídia.</div>
-                    {% endfor %}
-                </div>
-            </section>
+                    function setActiveLink() {
+                        let current = "";
 
-            <section class="content-section" id="docentes">
-                <div class="section-header">
-                    <h2>Docentes</h2>
-                    <p>Docentes que marcaram o percurso académico.</p>
-                </div>
-                <div class="card-grid">
-                    {% for item in docentes %}
-                    <article class="card">
+                        sections.forEach(section => {
+                            const sectionTop = section.offsetTop - 120;
+                            const sectionHeight = section.offsetHeight;
 
-                        {% if item.foto %}
-                        <a href="{% url 'docente_detail' item.id %}">
-                            <img src="{{ item.foto.url }}" alt="{{ item.nome }}">
-                        </a>
-                        {% endif %}
+                            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                                current = section.getAttribute("id");
+                            }
+                        });
 
-                        <div class="card-body">
-                            <h3>
-                                <a href="{% url 'docente_detail' item.id %}">
-                                    {{ item.nome }}
-                                </a>
-                            </h3>
-                            <p>{{ item.area_especializacao }}</p>
-                        </div>
-                    </article>
-                    {% empty %}
-                    <div class="empty-message">Sem docentes.</div>
-                    {% endfor %}
-                </div>
-            </section>
-            
-            <section class="content-section" id="contactos">
-                <div class="section-header">
-                    <h2>Conecte-se comigo</h2>
-                    <p>Redes, contactos e presença profissional.</p>
-                </div>
+                        navLinks.forEach(link => {
+                            link.classList.remove("active");
 
-                <div class="card-grid small-grid">
+                            if (link.getAttribute("href") === "#" + current) {
+                                link.classList.add("active");
+                            }
+                        });
+                    }
 
-                    <a href="https://github.com/Peter-Petrov-21407097"
-                        target="_blank"
-                        class="social-card">
-                        <h3>GITHUB</h3>
-                        <p>Repositórios, CI/CD e desenvolvimento full-stack.</p>
-                    </a>
-
-                    <a href="https://discord.com/users/Condutas.3580"
-                        class="social-card">
-                        <h3>DISCORD</h3>
-                        <p>Comunidade, networking e contacto.</p>
-                    </a>
-                </div>
-        </section>
-            
-
-            <script>
-                const sections = document.querySelectorAll("section[id]");
-                const navLinks = document.querySelectorAll(".menu a");
-
-                function setActiveLink() {
-                    let current = "";
-
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop - 120;
-                        const sectionHeight = section.offsetHeight;
-
-                        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                            current = section.getAttribute("id");
-                        }
-                    });
-
-                    navLinks.forEach(link => {
-                        link.classList.remove("active");
-
-                        if (link.getAttribute("href") === "#" + current) {
-                            link.classList.add("active");
-                        }
-                    });
-                }
-
-                window.addEventListener("scroll", setActiveLink);
-                window.addEventListener("load", setActiveLink);
-            </script>
+                    window.addEventListener("scroll", setActiveLink);
+                    window.addEventListener("load", setActiveLink);
+                </script>
 </body>
 
 </html>
