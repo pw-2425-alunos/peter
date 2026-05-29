@@ -3,8 +3,45 @@
 {% block content %}
 
 <h1>API RESTful com Django Ninja</h1>
+<button onclick="document.getElementById('musica').play()"
+style="
+padding:14px 28px;
+font-size:18px;
+font-weight:bold;
+background:#8B0000;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-bottom:20px;
+">
+🎵 Tocar Música Ambiente D&D
+</button>
+
+<audio id="musica" loop></audio>
+
+<script>
+const musicas = [
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069979/Melancolico_tyfjhq.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069973/Taverna_2_g1rksg.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069971/Batalha_2_rvextl.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069970/Local_Sacrado_dg4uwu.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069969/Povoacao_1_svk5aj.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069968/Batalha_3_rzhvwf.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069967/Exploracao_ruinas_fdpidm.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069966/Explora%C3%A7%C3%A3o_noturna_csw3ga.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069965/Taverna_1_mnicxc.mp3",
+    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069964/Batalha_1_vlwdox.mp3"
+];
+
+const musicaAleatoria =
+    musicas[Math.floor(Math.random() * musicas.length)];
+
+document.getElementById("musica").src = musicaAleatoria;
+</script>
 
 <hr>
+
 
 
 <h2>Videotutorial</h2>
@@ -126,14 +163,17 @@ href="/api/docs"
 target="_blank"
 style="
 display:inline-block;
-padding:12px 24px;
-background:#4CAF50;
+padding:20px 40px;
+background:#28a745;
 color:white;
 text-decoration:none;
-border-radius:8px;
+border-radius:10px;
 font-weight:bold;
+font-size:24px;
+margin-top:15px;
+box-shadow:0 0 10px rgba(0,0,0,0.4);
 ">
-Abrir Swagger
+📖 Abrir Documentação Swagger
 </a>
 
 <hr>
