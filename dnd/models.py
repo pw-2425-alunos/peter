@@ -56,11 +56,10 @@ class MusicaAmbiente(models.Model):
     genero = models.CharField(max_length=50)
     duracao = models.IntegerField()
 
+    url = models.URLField()
+
     campanha = models.ForeignKey(
         Campanha,
         on_delete=models.CASCADE,
         related_name="musicas"
     )
-
-    def __str__(self):
-        return self.titulo
