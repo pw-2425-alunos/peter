@@ -1,0 +1,98 @@
+{% extends "portfolio/base.html" %}
+
+{% block content %}
+
+<h1>API RESTful com Django Ninja</h1>
+
+<hr>
+
+<h2>Videotutorial</h2>
+
+<iframe
+    width="100%"
+    height="600"
+    src="https://www.youtube.com/embed/cp3z1wFbyGw"
+    title="Videotutorial API RESTful"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
+
+<br><br>
+
+<h2>O que é uma API RESTful?</h2>
+
+<p>
+Uma API RESTful permite a comunicação entre diferentes aplicações através do protocolo HTTP.
+Em vez de um utilizador interagir diretamente com páginas web, outras aplicações podem
+consultar, criar, atualizar ou remover informação através de endpoints específicos.
+</p>
+
+<p>
+As APIs REST utilizam normalmente quatro operações fundamentais:
+</p>
+
+<ul>
+    <li><strong>GET</strong> – obter dados;</li>
+    <li><strong>POST</strong> – criar novos dados;</li>
+    <li><strong>PUT</strong> – atualizar dados existentes;</li>
+    <li><strong>DELETE</strong> – remover dados.</li>
+</ul>
+
+<p>
+Neste projeto foi desenvolvida uma API RESTful utilizando Django Ninja, uma framework
+moderna construída sobre Django que simplifica a criação de APIs e gera documentação
+automática através do Swagger.
+</p>
+
+<p>
+A API desenvolvida tem como tema o universo Dungeons & Dragons e permite gerir campanhas
+através de operações CRUD completas. Foram ainda implementados filtros através de query
+parameters e mecanismos de paginação para melhorar a consulta dos dados.
+</p>
+
+<hr>
+
+<h2>Dungeons & Dragons</h2>
+
+<img
+    src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1/media/midia/d_d_qrb8f8"
+    alt="Dungeons and Dragons"
+    style="width:100%; max-width:1000px; border-radius:10px;">
+
+<p>
+A imagem apresentada representa uma sessão de Dungeons & Dragons com miniaturas e mapa
+de jogo. Esta temática foi escolhida para demonstrar a modelação de dados e a construção
+de uma API RESTful baseada em campanhas, personagens e outros elementos associados ao jogo.
+</p>
+
+<hr>
+
+<h2>Documentação Swagger</h2>
+
+<p>
+O Django Ninja gera automaticamente documentação Swagger para todos os endpoints criados.
+Através desta interface é possível testar pedidos diretamente no navegador, visualizar os
+schemas utilizados e verificar as respostas produzidas pela API.
+</p>
+
+<p>
+A documentação encontra-se disponível através do seguinte botão:
+</p>
+
+<p>
+    <a href="/api/docs" target="_blank">
+        Abrir Swagger
+    </a>
+</p>
+
+<hr>
+
+<h2>Conclusão</h2>
+
+<p>
+A construção desta API permitiu compreender os princípios fundamentais das arquiteturas
+REST, a organização de endpoints CRUD, a utilização de schemas para validação de dados e
+a integração entre Django, Django Ninja e Swagger para documentação automática.
+</p>
+
+{% endblock %}

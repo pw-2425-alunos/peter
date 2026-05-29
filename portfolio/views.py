@@ -118,6 +118,9 @@ def is_gestor_portfolio(user):
 def sobre_aplicacao(request):
     return render(request, 'portfolio/sobre_aplicacao.html')
 
+def api_restful(request):
+    return render(request, "portfolio/api_restful.html")
+
 
 # PROJETOS
 

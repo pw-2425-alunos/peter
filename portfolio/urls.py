@@ -32,4 +32,5 @@ urlpatterns = [
     path("formacoes/<int:id>/editar/", views.editar_formacao, name="editar_formacao"),
     path("formacoes/<int:id>/apagar/", views.apagar_formacao, name="apagar_formacao"),
     path("sobre-esta-aplicacao/", views.sobre_aplicacao, name="sobre_aplicacao"),
+    path("api-restful/", views.api_restful, name="api_restful"),
     ] 
