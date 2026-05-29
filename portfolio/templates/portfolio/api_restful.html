@@ -22,32 +22,30 @@
 <h2>O que é uma API RESTful?</h2>
 
 <p>
-Uma API RESTful permite a comunicação entre diferentes aplicações através do protocolo HTTP.
-Em vez de um utilizador interagir diretamente com páginas web, outras aplicações podem
-consultar, criar, atualizar ou remover informação através de endpoints específicos.
+Uma API RESTful permite a comunicação entre aplicações através de pedidos HTTP.
+Desta forma é possível consultar, criar, atualizar ou remover informação sem
+necessidade de interação direta com páginas HTML.
 </p>
 
 <p>
-As APIs REST utilizam normalmente quatro operações fundamentais:
+Os principais métodos utilizados são:
 </p>
 
 <ul>
-    <li><strong>GET</strong> – obter dados;</li>
-    <li><strong>POST</strong> – criar novos dados;</li>
-    <li><strong>PUT</strong> – atualizar dados existentes;</li>
-    <li><strong>DELETE</strong> – remover dados.</li>
+    <li><strong>GET</strong> – obter informação;</li>
+    <li><strong>POST</strong> – criar informação;</li>
+    <li><strong>PUT</strong> – atualizar informação;</li>
+    <li><strong>DELETE</strong> – remover informação.</li>
 </ul>
 
 <p>
-Neste projeto foi desenvolvida uma API RESTful utilizando Django Ninja, uma framework
-moderna construída sobre Django que simplifica a criação de APIs e gera documentação
-automática através do Swagger.
+Neste projeto foi utilizada a framework Django Ninja para desenvolver uma API
+RESTful associada ao universo Dungeons & Dragons.
 </p>
 
 <p>
-A API desenvolvida tem como tema o universo Dungeons & Dragons e permite gerir campanhas
-através de operações CRUD completas. Foram ainda implementados filtros através de query
-parameters e mecanismos de paginação para melhorar a consulta dos dados.
+Foram implementadas operações CRUD completas, filtros através de query
+parameters e paginação para melhorar a consulta dos dados.
 </p>
 
 <hr>
@@ -55,44 +53,52 @@ parameters e mecanismos de paginação para melhorar a consulta dos dados.
 <h2>Dungeons & Dragons</h2>
 
 <img
-    src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1/media/midia/d_d_qrb8f8"
-    alt="Dungeons and Dragons"
-    style="width:100%; max-width:1000px; border-radius:10px;">
+src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1/media/midia/d_d_qrb8f8"
+style="width:100%; max-width:1000px; border-radius:10px;"
+>
 
 <p>
-A imagem apresentada representa uma sessão de Dungeons & Dragons com miniaturas e mapa
-de jogo. Esta temática foi escolhida para demonstrar a modelação de dados e a construção
-de uma API RESTful baseada em campanhas, personagens e outros elementos associados ao jogo.
+A aplicação foi inspirada no universo Dungeons & Dragons, permitindo gerir
+campanhas e outros elementos relacionados com o jogo.
 </p>
 
 <hr>
 
-<h2>Documentação Swagger</h2>
+<h2>Swagger</h2>
 
 <p>
-O Django Ninja gera automaticamente documentação Swagger para todos os endpoints criados.
-Através desta interface é possível testar pedidos diretamente no navegador, visualizar os
-schemas utilizados e verificar as respostas produzidas pela API.
+O Django Ninja gera automaticamente documentação Swagger para todos os
+endpoints da API. Através desta interface é possível testar pedidos,
+visualizar schemas e analisar respostas diretamente no navegador.
 </p>
 
 <p>
-A documentação encontra-se disponível através do seguinte botão:
+Clique abaixo para abrir a documentação Swagger:
 </p>
 
-<p>
-    <a href="/api/docs" target="_blank">
-        Abrir Swagger
-    </a>
-</p>
+<a
+href="/api/docs"
+target="_blank"
+style="
+display:inline-block;
+padding:12px 24px;
+background:#4CAF50;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+">
+Abrir Swagger
+</a>
 
 <hr>
 
 <h2>Conclusão</h2>
 
 <p>
-A construção desta API permitiu compreender os princípios fundamentais das arquiteturas
-REST, a organização de endpoints CRUD, a utilização de schemas para validação de dados e
-a integração entre Django, Django Ninja e Swagger para documentação automática.
+A construção desta API permitiu compreender os princípios das arquiteturas
+REST, a criação de endpoints CRUD, a utilização de schemas para validação de
+dados e a integração entre Django, Django Ninja e Swagger.
 </p>
 
 {% endblock %}
