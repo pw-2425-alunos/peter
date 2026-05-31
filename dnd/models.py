@@ -56,7 +56,7 @@ class MusicaAmbiente(models.Model):
     genero = models.CharField(max_length=50)
     duracao = models.IntegerField()
 
-    url = models.URLField()
+    url = models.URLField(blank=True, default="")
 
     campanha = models.ForeignKey(
         Campanha,

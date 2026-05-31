@@ -1,0 +1,421 @@
+[
+{
+"model": "dnd.campanha",
+"pk": 1,
+"fields": {
+"nome": "Neat",
+"mestre": "Peter P",
+"mundo": "Forgotten Realms",
+"nivel_recomendado": 5,
+"ativa": true
+}
+},
+{
+"model": "dnd.campanha",
+"pk": 2,
+"fields": {
+"nome": "OSR Adventure Modules",
+"mestre": "Peter P",
+"mundo": "Greyhawk",
+"nivel_recomendado": 3,
+"ativa": true
+}
+},
+{
+"model": "dnd.campanha",
+"pk": 3,
+"fields": {
+"nome": "Forgotten Realms",
+"mestre": "Peter P",
+"mundo": "Faerun",
+"nivel_recomendado": 7,
+"ativa": true
+}
+},
+{
+"model": "dnd.campanha",
+"pk": 4,
+"fields": {
+"nome": "Mistmier Chronicles",
+"mestre": "Peter P",
+"mundo": "Mistmier",
+"nivel_recomendado": 8,
+"ativa": true
+}
+},
+{
+"model": "dnd.campanha",
+"pk": 5,
+"fields": {
+"nome": "War Against Glasya",
+"mestre": "Peter P",
+"mundo": "Nine Hells",
+"nivel_recomendado": 12,
+"ativa": true
+}
+},
+
+{
+    "model": "dnd.personagem",
+    "pk": 1,
+    "fields": {
+        "nome": "Guimarae",
+        "raca": "Half-Elf",
+        "classe": "Bard",
+        "nivel": 5,
+        "vida": 38,
+        "campanha": 2
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 2,
+    "fields": {
+        "nome": "Eirlia",
+        "raca": "Wood Elf",
+        "classe": "Ranger",
+        "nivel": 8,
+        "vida": 67,
+        "campanha": 1
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 3,
+    "fields": {
+        "nome": "Viola",
+        "raca": "Fairy",
+        "classe": "Wizard",
+        "nivel": 6,
+        "vida": 31,
+        "campanha": 1
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 4,
+    "fields": {
+        "nome": "Fabre Sullivar",
+        "raca": "Tabaxi",
+        "classe": "Monk",
+        "nivel": 10,
+        "vida": 84,
+        "campanha": 5
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 5,
+    "fields": {
+        "nome": "Stormwind",
+        "raca": "Human",
+        "classe": "Paladin",
+        "nivel": 7,
+        "vida": 62,
+        "campanha": 1
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 6,
+    "fields": {
+        "nome": "Anna Conda",
+        "raca": "Yuan-Ti",
+        "classe": "Sorcerer",
+        "nivel": 6,
+        "vida": 34,
+        "campanha": 1
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 7,
+    "fields": {
+        "nome": "Fiona",
+        "raca": "Human",
+        "classe": "Fighter",
+        "nivel": 5,
+        "vida": 49,
+        "campanha": 1
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 8,
+    "fields": {
+        "nome": "Amdus",
+        "raca": "Aasimar",
+        "classe": "Cleric",
+        "nivel": 9,
+        "vida": 71,
+        "campanha": 4
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 9,
+    "fields": {
+        "nome": "Iradarin",
+        "raca": "Elf",
+        "classe": "Warlock",
+        "nivel": 7,
+        "vida": 52,
+        "campanha": 3
+    }
+},
+{
+    "model": "dnd.personagem",
+    "pk": 10,
+    "fields": {
+        "nome": "Lilian",
+        "raca": "Dragonborn",
+        "classe": "Barbarian",
+        "nivel": 8,
+        "vida": 79,
+        "campanha": 3
+    }
+}
+,
+{
+"model": "dnd.missao",
+"pk": 1,
+"fields": {
+"titulo": "Resgate no Farol Submerso",
+"descricao": "Explorar um farol abandonado, localizar um pescador desaparecido e salvar sobreviventes presos nas profundezas.",
+"recompensa_ouro": 500,
+"concluida": true,
+"campanha": 2,
+"personagens": [1, 2, 3]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 2,
+"fields": {
+"titulo": "Caçadores de Tubarões",
+"descricao": "Uma expedição subaquática é interrompida por tubarões gigantes que atacam os aventureiros.",
+"recompensa_ouro": 350,
+"concluida": true,
+"campanha": 2,
+"personagens": [1, 5]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 3,
+"fields": {
+"titulo": "Invasores da Caverna das Aranhas",
+"descricao": "Uma infestação de aranhas monstruosas ameaça uma região remota e deve ser eliminada.",
+"recompensa_ouro": 400,
+"concluida": true,
+"campanha": 2,
+"personagens": [1, 4, 7]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 4,
+"fields": {
+"titulo": "Emboscada a Michael Bay",
+"descricao": "Uma operação secreta em Waterdeep para capturar um alvo famoso por explosões e caos.",
+"recompensa_ouro": 800,
+"concluida": true,
+"campanha": 3,
+"personagens": [4, 5, 6]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 5,
+"fields": {
+"titulo": "Os Quatro Testes de Glasya",
+"descricao": "Os heróis enfrentam provações ligadas à fúria, medo, ódio e orgulho impostas por uma entidade poderosa.",
+"recompensa_ouro": 1200,
+"concluida": true,
+"campanha": 5,
+"personagens": [4, 5, 7]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 6,
+"fields": {
+"titulo": "Ninho dos Beholders",
+"descricao": "Uma incursão ao Plano Astral para enfrentar beholders e descobrir os segredos do falso rei.",
+"recompensa_ouro": 1000,
+"concluida": true,
+"campanha": 3,
+"personagens": [10, 3, 2]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 7,
+"fields": {
+"titulo": "Purificação do Underdark",
+"descricao": "Forças de Glasya espalham corrupção no Underdark e devem ser eliminadas.",
+"recompensa_ouro": 1500,
+"concluida": true,
+"campanha": 5,
+"personagens": [4, 10, 8]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 8,
+"fields": {
+"titulo": "Mink Have Blink",
+"descricao": "Combate contra criaturas tentaculares e entidades mágicas extremamente perigosas.",
+"recompensa_ouro": 700,
+"concluida": true,
+"campanha": 4,
+"personagens": [4, 8]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 9,
+"fields": {
+"titulo": "Captura de Almas",
+"descricao": "Uma caçada a entidades demoníacas culmina na captura de uma alma poderosa.",
+"recompensa_ouro": 1300,
+"concluida": true,
+"campanha": 5,
+"personagens": [4, 9, 10]
+}
+},
+{
+"model": "dnd.missao",
+"pk": 10,
+"fields": {
+"titulo": "Fifty Shades of Vermillion",
+"descricao": "Uma viagem aos reinos infernais em busca de relíquias antigas e respostas sobre o passado de Vermillion.",
+"recompensa_ouro": 1800,
+"concluida": true,
+"campanha": 4,
+"personagens": [8, 10, 9]
+}
+}
+,
+{
+"model": "dnd.musicaambiente",
+"pk": 1,
+"fields": {
+"titulo": "Melancolico",
+"artista": "Fantasy Ambience",
+"genero": "Ambient",
+"duracao": 240,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069979/Melancolico_tyfjhq.mp3",
+"campanha": 4
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 2,
+"fields": {
+"titulo": "Taverna 2",
+"artista": "Fantasy Ambience",
+"genero": "Tavern",
+"duracao": 180,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069973/Taverna_2_g1rksg.mp3",
+"campanha": 1
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 3,
+"fields": {
+"titulo": "Batalha 2",
+"artista": "Fantasy Ambience",
+"genero": "Battle",
+"duracao": 210,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069971/Batalha_2_rvextl.mp3",
+"campanha": 5
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 4,
+"fields": {
+"titulo": "Local Sacrado",
+"artista": "Fantasy Ambience",
+"genero": "Temple",
+"duracao": 220,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069970/Local_Sacrado_dg4uwu.mp3",
+"campanha": 3
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 5,
+"fields": {
+"titulo": "Povoacao 1",
+"artista": "Fantasy Ambience",
+"genero": "Village",
+"duracao": 200,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069969/Povoacao_1_svk5aj.mp3",
+"campanha": 1
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 6,
+"fields": {
+"titulo": "Batalha 3",
+"artista": "Fantasy Ambience",
+"genero": "Battle",
+"duracao": 230,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069968/Batalha_3_rzhvwf.mp3",
+"campanha": 5
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 7,
+"fields": {
+"titulo": "Exploracao Ruinas",
+"artista": "Fantasy Ambience",
+"genero": "Exploration",
+"duracao": 210,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069967/Exploracao_ruinas_fdpidm.mp3",
+"campanha": 2
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 8,
+"fields": {
+"titulo": "Exploracao Noturna",
+"artista": "Fantasy Ambience",
+"genero": "Exploration",
+"duracao": 205,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069966/Explora%C3%A7%C3%A3o_noturna_csw3ga.mp3",
+"campanha": 2
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 9,
+"fields": {
+"titulo": "Taverna 1",
+"artista": "Fantasy Ambience",
+"genero": "Tavern",
+"duracao": 175,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069965/Taverna_1_mnicxc.mp3",
+"campanha": 1
+}
+},
+{
+"model": "dnd.musicaambiente",
+"pk": 10,
+"fields": {
+"titulo": "Batalha 1",
+"artista": "Fantasy Ambience",
+"genero": "Battle",
+"duracao": 215,
+"url": "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069964/Batalha_1_vlwdox.mp3",
+"campanha": 5
+}
+}
+]
+
