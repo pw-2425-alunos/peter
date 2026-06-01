@@ -31,6 +31,31 @@ from .models import (
     Midia,
 )
 
+import requests
+
+def tarefas_colega(request):
+
+    try:
+        response = requests.get(
+            "https://pedrofonseca-a21000586.pw.deisi.ulusofona.pt/api/tarefas",
+            verify=False
+        )
+
+        if response.status_code == 200:
+            dados = response.json()
+            tarefas = dados.get("items", [])
+        else:
+            tarefas = []
+
+    except Exception:
+        tarefas = []
+
+    return render(
+        request,
+        "dnd/dnd.html",
+        {"tarefas": tarefas}
+    )
+
 def export_database(request):
     buffer = io.StringIO()
 

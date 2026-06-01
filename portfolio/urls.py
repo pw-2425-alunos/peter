@@ -33,4 +33,9 @@ urlpatterns = [
     path("formacoes/<int:id>/apagar/", views.apagar_formacao, name="apagar_formacao"),
     path("sobre-esta-aplicacao/", views.sobre_aplicacao, name="sobre_aplicacao"),
     path("api/info/", views.api_restful, name="api_restful"),
+    path(
+    "tarefas-colega/",
+    views.tarefas_colega,
+    name="tarefas_colega"
+    ),
     ] 

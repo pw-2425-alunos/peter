@@ -1,0 +1,32 @@
+<!-- dnd/templates/dnd/tarefas_colega.html -->
+
+<h1>Tarefas da API de Pedro Fonseca</h1>
+
+{% for tarefa in tarefas %}
+
+<div style="border:1px solid #ccc; margin:10px; padding:10px;">
+
+    <h3>{{ tarefa.titulo }}</h3>
+
+    <p>
+        <strong>Estado:</strong>
+        {{ tarefa.estado }}
+    </p>
+
+    <p>
+        <strong>Prazo:</strong>
+        {{ tarefa.prazo }}
+    </p>
+
+    <p>
+        <strong>Criada em:</strong>
+        {{ tarefa.criado_em }}
+    </p>
+
+</div>
+
+{% empty %}
+
+<p>Não foi possível obter tarefas.</p>
+
+{% endfor %}

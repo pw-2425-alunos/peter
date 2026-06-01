@@ -57,6 +57,7 @@ def listar_campanhas(
     if ativa is not None:
         campanhas = campanhas.filter(ativa=ativa)
 
+
     if mundo:
         campanhas = campanhas.filter(mundo__icontains=mundo)
 
