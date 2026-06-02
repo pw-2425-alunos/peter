@@ -5,7 +5,7 @@ from .schemas import CampanhaSchema, CampanhaCreateSchema
 router = Router()
 
 
-# GET ONE
+# GET UM
 @router.get("/campanhas/{campanha_id}", response=CampanhaSchema)
 def obter_campanha(request, campanha_id: int):
     return Campanha.objects.get(id=campanha_id)
