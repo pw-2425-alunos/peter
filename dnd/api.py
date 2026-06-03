@@ -1,5 +1,13 @@
 from ninja import Router
-from .models import Campanha, Personagem, Missao, MusicaAmbiente
+from ninja.security import APIKeyHeader
+
+from .models import (
+    Campanha,
+    Personagem,
+    Missao,
+    MusicaAmbiente,
+    APIKey,
+)
 
 from .schemas import (
     CampanhaSchema,
@@ -12,9 +20,24 @@ from .schemas import (
     MusicaCreateSchema,
 )
 
-
 router = Router()
 
+
+# Criação da classe API para autenticação
+class AuthAPIKey(APIKeyHeader):
+    param_name = "X-API-Key"
+
+    def authenticate(self, request, key):
+        try:
+            api_key = APIKey.objects.get(key=key)
+
+            if api_key.is_valid():
+                return api_key.name
+
+        except APIKey.DoesNotExist:
+            pass
+
+        return None
 
 # GET UM
 @router.get("/campanhas/{campanha_id}", response=CampanhaSchema)
@@ -246,3 +269,13 @@ def apagar_musica(request, musica_id: int):
     musica.delete()
 
     return {"success": True}
+
+@router.get("/teste-privado", auth=AuthAPIKey())
+def teste_privado(request):
+
+    return {
+        "message": (
+            f"Autenticado com sucesso "
+            f"como {request.auth}"
+        )
+    }
