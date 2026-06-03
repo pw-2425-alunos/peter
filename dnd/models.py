@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.utils import timezone
+import secrets
 
 class Campanha(models.Model):
     nome = models.CharField(max_length=100)
@@ -63,3 +64,40 @@ class MusicaAmbiente(models.Model):
         on_delete=models.CASCADE,
         related_name="musicas"
     )
+def __str__(self):
+    return self.titulo
+
+
+def generate_api_key():
+    return secrets.token_urlsafe(32)
+
+
+class APIKey(models.Model):
+    name = models.CharField(
+        max_length=100,
+        help_text="Nome de quem vai usar a chave"
+    )
+
+    key = models.CharField(
+        max_length=255,
+        unique=True,
+        default=generate_api_key
+    )
+
+    is_active = models.BooleanField(default=True)
+
+    expiration_date = models.DateTimeField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return (
+            f"{self.name} - "
+            f"{'Ativa' if self.is_active else 'Inativa'}"
+        )
+
+    def is_valid(self):
+        return (
+            self.is_active
+            and self.expiration_date > timezone.now()
+        )    

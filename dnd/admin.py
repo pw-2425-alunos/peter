@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Campanha, Personagem, Missao, MusicaAmbiente
+from .models import (
+    Campanha,
+    Personagem,
+    Missao,
+    MusicaAmbiente,
+    APIKey,
+)
 
 @admin.register(Campanha)
 class CampanhaAdmin(admin.ModelAdmin):
@@ -16,3 +22,13 @@ class MissaoAdmin(admin.ModelAdmin):
 @admin.register(MusicaAmbiente)
 class MusicaAmbienteAdmin(admin.ModelAdmin):
     list_display = ("id", "titulo", "artista", "genero","campanha")
+
+@admin.register(APIKey)
+class APIKeyAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "name",
+        "is_active",
+        "expiration_date",
+        "created_at",
+    )
