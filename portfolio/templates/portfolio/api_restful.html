@@ -1,10 +1,60 @@
-{% extends "portfolio/base.html" %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="pt">
 
-<h1>API RESTful com Django Ninja</h1>
-<button onclick="document.getElementById('musica').play()"
-style="
+<head>
+    <meta charset="UTF-8">
+    <title>API RESTful D&D</title>
+
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <h2>API RESTful D&D</h2>
+                <p>Django Ninja</p>
+            </div>
+
+            <nav class="menu">
+
+                <a href="{% url 'home' %}">
+                    ⬅ RETROCEDER
+                </a>
+
+                <a href="#videotutorial">
+                    Videotutorial
+                </a>
+
+                <a href="#explicacao">
+                    Explicação
+                </a>
+
+                <a href="#dnd">
+                    Dungeons & Dragons
+                </a>
+
+                <a href="#swagger">
+                    Swagger
+                </a>
+
+                <a href="#conclusao">
+                    Conclusão
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <main class="main-content">
+
+            <h1>API RESTful com Django Ninja</h1>
+            <button onclick="document.getElementById('musica').play()" style="
 padding:14px 28px;
 font-size:18px;
 font-weight:bold;
@@ -15,153 +65,152 @@ border-radius:8px;
 cursor:pointer;
 margin-bottom:20px;
 ">
-🎵 Tocar Música Ambiente D&D
-</button>
+                🎵 Tocar Música Ambiente D&D
+            </button>
 
-<audio id="musica" loop></audio>
+            <audio id="musica" loop></audio>
 
-<script>
-const musicas = [
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069979/Melancolico_tyfjhq.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069973/Taverna_2_g1rksg.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069971/Batalha_2_rvextl.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069970/Local_Sacrado_dg4uwu.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069969/Povoacao_1_svk5aj.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069968/Batalha_3_rzhvwf.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069967/Exploracao_ruinas_fdpidm.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069966/Explora%C3%A7%C3%A3o_noturna_csw3ga.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069965/Taverna_1_mnicxc.mp3",
-    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069964/Batalha_1_vlwdox.mp3"
-];
+            <script>
+                const musicas = [
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069979/Melancolico_tyfjhq.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069973/Taverna_2_g1rksg.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069971/Batalha_2_rvextl.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069970/Local_Sacrado_dg4uwu.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069969/Povoacao_1_svk5aj.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069968/Batalha_3_rzhvwf.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069967/Exploracao_ruinas_fdpidm.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069966/Explora%C3%A7%C3%A3o_noturna_csw3ga.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069965/Taverna_1_mnicxc.mp3",
+                    "https://res.cloudinary.com/dxnc9l5cn/video/upload/v1780069964/Batalha_1_vlwdox.mp3"
+                ];
 
-const musicaAleatoria =
-    musicas[Math.floor(Math.random() * musicas.length)];
+                const musicaAleatoria =
+                    musicas[Math.floor(Math.random() * musicas.length)];
 
-document.getElementById("musica").src = musicaAleatoria;
-</script>
+                document.getElementById("musica").src = musicaAleatoria;
+            </script>
 
-<hr>
+            <hr>
 
 
 
-<h2>Videotutorial</h2>
+            <section id="videotutorial">
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 40px;">
+                <h2>Videotutorial</h2>
 
-    <iframe
-        src="https://www.youtube-nocookie.com/embed/cp3z1wFbyGw"
-        title="API RESTful com Django Ninja"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        referrerpolicy="strict-origin-when-cross-origin"
-        style="position:absolute;
+                <div
+                    style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 40px;">
+
+                    <iframe src="https://www.youtube-nocookie.com/embed/cp3z1wFbyGw"
+                        title="API RESTful com Django Ninja"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;
                top:0;
                left:0;
                width:100%;
                height:100%;
                border:0;">
-    </iframe>
+                    </iframe>
+                </div>
+                </section>
+    
 
-</div>
+    <br><br>
 
-<br><br>
+    <section id="explicacao">
 
-<h2>O que é uma API RESTful?</h2>
+        <h2>O que é uma API RESTful?</h2>
 
-<p>
-Uma API RESTful permite a comunicação entre aplicações através de pedidos HTTP.
-Desta forma é possível consultar, criar, atualizar ou remover informação sem
-necessidade de interação direta com páginas HTML.
-</p>
+        <p>
+            Uma API RESTful permite a comunicação entre aplicações através de pedidos HTTP.
+            Desta forma é possível consultar, criar, atualizar ou remover informação sem
+            necessidade de interação direta com páginas HTML.
+        </p>
 
-<p>
-Os principais métodos utilizados são:
-</p>
+        <p>
+            Os principais métodos utilizados são:
+        </p>
 
-<ul>
-    <li><strong>GET</strong> – obter informação;</li>
-    <li><strong>POST</strong> – criar informação;</li>
-    <li><strong>PUT</strong> – atualizar informação;</li>
-    <li><strong>DELETE</strong> – remover informação.</li>
-</ul>
+        <ul>
+            <li><strong>GET</strong> – obter informação;</li>
+            <li><strong>POST</strong> – criar informação;</li>
+            <li><strong>PUT</strong> – atualizar informação;</li>
+            <li><strong>DELETE</strong> – remover informação.</li>
+        </ul>
 
-<p>
-Neste projeto foi utilizada a framework Django Ninja para desenvolver uma API
-RESTful associada ao universo Dungeons & Dragons.
-</p>
+        <p>
+            Neste projeto foi utilizada a framework Django Ninja para desenvolver uma API
+            RESTful associada ao universo Dungeons & Dragons.
+        </p>
 
-<p>
-Foram implementadas operações CRUD completas, filtros através de query
-parameters e paginação para melhorar a consulta dos dados.
-</p>
+        <p>
+            Foram implementadas operações CRUD completas, filtros através de query
+            parameters e paginação para melhorar a consulta dos dados.
+        </p>
+    </section>
+    <hr>
 
-<hr>
+    <section id="dnd">
 
-<h2>Dungeons & Dragons</h2>
+        <h2>Dungeons & Dragons</h2>
 
-<p>
-O tema escolhido para a implementação da API foi o universo Dungeons & Dragons.
-A API permite gerir campanhas, consultar informação e realizar operações CRUD
-sobre os dados armazenados na base de dados.
-</p>
+        <p>
+            O tema escolhido para a implementação da API foi o universo Dungeons & Dragons.
+            A API permite gerir campanhas, consultar informação e realizar operações CRUD
+            sobre os dados armazenados na base de dados.
+        </p>
 
-<img ... >
+        <img ...>
 
-<img ... >
+        <img ...>
 
-<p>
-As imagens em baixo mostram algumas das miniaturas utilizadas nas sessões de jogo
-que serviram de inspiração para o desenvolvimento desta aplicação.
-</p>
+        <p>
+            As imagens em baixo mostram algumas das miniaturas utilizadas nas sessões de jogo
+            que serviram de inspiração para o desenvolvimento desta aplicação.
+        </p>
 
-<img
-src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1780064545/d_d_miniatures_oto9qs.jpg"
-style="width:100%; max-width:1000px; border-radius:10px; margin-bottom:20px;"
-alt="Miniaturas Dungeons and Dragons"
->
+        <img src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1780064545/d_d_miniatures_oto9qs.jpg"
+            style="width:100%; max-width:1000px; border-radius:10px; margin-bottom:20px;"
+            alt="Miniaturas Dungeons and Dragons">
 
-<img
-src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1780068077/final_battle_ipcw8y.jpg"
-style="width:100%; max-width:1000px; border-radius:10px; margin-bottom:20px;"
-alt="Batalha Final de Campanha na Wizards of The Toast"
->
+        <img src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1780068077/final_battle_ipcw8y.jpg"
+            style="width:100%; max-width:1000px; border-radius:10px; margin-bottom:20px;"
+            alt="Batalha Final de Campanha na Wizards of The Toast">
 
 
-<img
-src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1780050472/d_d_qrb8f8.jpg"
-style="width:100%; max-width:1000px; border-radius:10px;"
-alt="Tabuleiro Dungeons and Dragons"
->
+        <img src="https://res.cloudinary.com/dxnc9l5cn/image/upload/v1780050472/d_d_qrb8f8.jpg"
+            style="width:100%; max-width:1000px; border-radius:10px;" alt="Tabuleiro Dungeons and Dragons">
 
-<p>
-A aplicação foi inspirada no universo Dungeons & Dragons, permitindo gerir
-campanhas e outros elementos relacionados com o jogo.
-</p>
+        <p>
+            A aplicação foi inspirada no universo Dungeons & Dragons, permitindo gerir
+            campanhas e outros elementos relacionados com o jogo.
+        </p>
+    </section>
+    <hr>
 
-<hr>
+    <hr>
 
-<h2>Swagger</h2>
+    <section id="swagger">
 
-<p>
-Neste projeto foi utilizada a framework Django Ninja para desenvolver uma API
-RESTful associada ao universo Dungeons & Dragons. O Django Ninja simplifica a
-criação de APIs em Django, oferecendo validação automática de dados, geração
-de documentação Swagger e integração nativa com os modelos da aplicação.
-</p>
+    <h2>Swagger</h2>
 
-<p>
-Foram implementadas operações CRUD completas, filtros através de query
-parameters e paginação para melhorar a consulta dos dados.
-</p>
+    <p>
+        Neste projeto foi utilizada a framework Django Ninja para desenvolver uma API
+        RESTful associada ao universo Dungeons & Dragons. O Django Ninja simplifica a
+        criação de APIs em Django, oferecendo validação automática de dados, geração
+        de documentação Swagger e integração nativa com os modelos da aplicação.
+    </p>
 
-<p>
-Clique abaixo para abrir a documentação Swagger:
-</p>
+    <p>
+        Foram implementadas operações CRUD completas, filtros através de query
+        parameters e paginação para melhorar a consulta dos dados.
+    </p>
 
-<a
-href="/api/docs"
-target="_blank"
-style="
+    <p>
+        Clique abaixo para abrir a documentação Swagger:
+    </p>
+
+    <a href="/api/docs" target="_blank" style="
 display:inline-block;
 padding:20px 40px;
 background:#28a745;
@@ -173,19 +222,27 @@ font-size:24px;
 margin-top:15px;
 box-shadow:0 0 10px rgba(0,0,0,0.4);
 ">
-📖 Abrir Documentação Swagger
-</a>
+        📖 Abrir Documentação Swagger
+    </a>
+    </section>
+    <hr>
 
-<hr>
+    <section id="conclusao">
 
-<h2>Conclusão</h2>
+        <h2>Conclusão</h2>
 
-<p>
-A construção desta API permitiu consolidar conhecimentos sobre arquiteturas
-REST, desenvolvimento backend com Django, documentação automática com Swagger
-e utilização do Django Ninja para implementação rápida e eficiente de APIs.
-Além disso, foi possível compreender a importância da separação entre dados,
-lógica de negócio e interface de utilização.
-</p>
+        <p>
+            A construção desta API permitiu consolidar conhecimentos sobre arquiteturas
+            REST, desenvolvimento backend com Django, documentação automática com Swagger
+            e utilização do Django Ninja para implementação rápida e eficiente de APIs.
+            Além disso, foi possível compreender a importância da separação entre dados,
+            lógica de negócio e interface de utilização.
+        </p>
+    </section>
+    </main>
 
-{% endblock %}
+    </div>
+
+</body>
+
+</html>
