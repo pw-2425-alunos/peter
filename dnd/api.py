@@ -146,6 +146,8 @@ def atualizar_personagem(
     personagem.save()
 
     return personagem
+    
+
 
 
 @router.delete("/personagens/{personagem_id}")
