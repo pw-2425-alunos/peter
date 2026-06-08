@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth import login
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
@@ -10,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.management import call_command
 from django.http import HttpResponse
+
 import io
 from .forms import (
     TecnologiaForm,

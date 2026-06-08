@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portofólio</title>
+    <title>Meu Portfólio</title>
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
 </head>
 
@@ -19,7 +19,7 @@
     <div class="layout">
         <aside class="sidebar">
             <div class="brand">
-                <h2>Meu Portofólio</h2>
+                <h2>Meu Portfólio</h2>
                 <p>Engenharia Informática</p>
             </div>
 
@@ -260,6 +260,10 @@
 
             <section class="content-section" id="tfcs">
                 <div class="section-header">
+                    <h2>TFCs</h2>
+                    <p>Trabalhos Finais de Curso.</p>
+                </div>
+                <div class="section-header">
                 </div>
                 <div class="card-grid">
                     {% for item in tfcs %}
@@ -406,7 +410,7 @@
                         <p>Repositórios, CI/CD e desenvolvimento full-stack.</p>
                     </a>
 
-                    <a href="https://discord.com/users/Condutas.3580" class="social-card">
+                    <a href="https://discord.com/users/Condutas.3580" target="_blank" class="social-card">
                         <h3>DISCORD</h3>
                         <p>Comunidade, networking e contacto.</p>
                     </a>
@@ -442,6 +446,9 @@
                 window.addEventListener("scroll", setActiveLink);
                 window.addEventListener("load", setActiveLink);
             </script>
+
+        </main>
+    </div>
 </body>
 
 </html>

@@ -27,7 +27,7 @@ class UnidadeCurricular(models.Model):
     ects = models.PositiveIntegerField()
     apresentacao = models.TextField()
     programa = models.TextField()
-    objectivos = models.TextField()
+    objectivo = models.TextField()
     imagem = models.ImageField(upload_to='unidades_curriculares/', blank=True, null=True)
     url_website = models.URLField()
 
