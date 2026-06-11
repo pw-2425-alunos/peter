@@ -1,0 +1,125 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}API Externa Colega{% endblock %}
+
+{% block content %}
+
+<h1>API Externa - Francisco Pearson</h1>
+
+<p>
+    Esta página consome a API RESTful de Contratos.
+</p>
+
+<a href="https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/docs"
+   target="_blank"
+   style="
+        display:inline-block;
+        padding:12px 24px;
+        background:#28a745;
+        color:white;
+        text-decoration:none;
+        border-radius:8px;
+        margin-bottom:20px;
+">
+    📖 Ver documentação Swagger
+</a>
+
+<a href="{% url 'criar_contrato_colega' %}"
+   style="
+        display:inline-block;
+        padding:12px 24px;
+        background:#0066cc;
+        color:white;
+        text-decoration:none;
+        border-radius:8px;
+        margin-left:10px;
+        margin-bottom:20px;
+">
+    ➕ Criar Contrato
+</a>
+
+<hr>
+
+<h2>Filtros</h2>
+
+<form method="get">
+
+    <label>Jurisdição:</label>
+    <input type="text"
+           name="jurisdicao"
+           value="{{ request.GET.jurisdicao }}">
+
+    <label>Tipo:</label>
+    <input type="text"
+           name="tipo"
+           value="{{ request.GET.tipo }}">
+
+    <button type="submit">
+        Filtrar
+    </button>
+
+</form>
+
+<hr>
+
+{% if erro %}
+
+<p style="color:red;">
+    {{ erro }}
+</p>
+
+{% endif %}
+
+<h2>Contratos</h2>
+
+{% for contrato in contratos %}
+
+<div style="
+        border:1px solid #444;
+        padding:15px;
+        margin-bottom:15px;
+        border-radius:8px;
+">
+
+    <h3>{{ contrato.titulo }}</h3>
+
+    <p>
+        <strong>ID:</strong>
+        {{ contrato.id }}
+    </p>
+
+    <p>
+        <strong>Tipo:</strong>
+        {{ contrato.tipo }}
+    </p>
+
+    <p>
+        <strong>Jurisdição:</strong>
+        {{ contrato.jurisdicao }}
+    </p>
+
+    <p>
+        <strong>Data:</strong>
+        {{ contrato.data_upload }}
+    </p>
+
+    <p>
+        <strong>Texto:</strong>
+        {{ contrato.texto_anonimizado|truncatechars:250 }}
+    </p>
+
+    <a href="{% url 'contrato_detalhe' contrato.id %}">
+        Ver detalhes
+    </a>
+
+</div>
+
+{% empty %}
+
+<p>
+    Nenhum contrato encontrado.
+</p>
+
+{% endfor %}
+
+{% endblock %}

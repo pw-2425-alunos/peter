@@ -35,27 +35,135 @@ from .models import (
 
 import requests
 
-def tarefas_colega(request):
+
+def contrato_detalhe(request, id):
+
+    headers = {
+        "accept": "application/json"
+    }
 
     try:
+
         response = requests.get(
-            "https://pedrofonseca-a21000586.pw.deisi.ulusofona.pt/api/tarefas",
+            f"https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/contratos/{id}/",
+            headers=headers,
             verify=False
         )
 
         if response.status_code == 200:
-            dados = response.json()
-            tarefas = dados.get("items", [])
-        else:
-            tarefas = []
 
-    except Exception:
-        tarefas = []
+            contrato = response.json()
+
+            return render(
+                request,
+                "portfolio/contrato_detalhe.html",
+                {
+                    "contrato": contrato
+                }
+            )
+
+        return render(
+            request,
+            "portfolio/contrato_detalhe.html",
+            {
+                "erro": f"Erro {response.status_code}"
+            }
+        )
+
+    except Exception as e:
+
+        return render(
+            request,
+            "portfolio/contrato_detalhe.html",
+            {
+                "erro": str(e)
+            }
+        )
+
+def criar_contrato_colega(request):
+
+    erro = None
+
+    if request.method == "POST":
+
+        dados = {
+            "titulo": request.POST.get("titulo"),
+            "tipo": request.POST.get("tipo"),
+            "texto_original": request.POST.get("texto_original"),
+            "jurisdicao": request.POST.get("jurisdicao"),
+            "etiqueta_ids": []
+        }
+
+        try:
+
+            headers = {
+                "X-API-Key": "FWo8NeiWN-pHA8aGkK53oDBAZ1N10D53AXwiOHexsf0"
+                }
+
+            response = requests.post(
+                "https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/contratos/",
+                json=dados,
+                headers=headers,
+                verify=False
+                )
+
+            if response.status_code in [200, 201]:
+                return redirect("tarefas_colega")
+
+            erro = f"Erro {response.status_code} - {response.text}"
+
+        except Exception as e:
+            erro = str(e)
 
     return render(
         request,
-        "dnd/dnd.html",
-        {"tarefas": tarefas}
+        "portfolio/contrato_form.html",
+        {
+            "erro": erro
+        }
+    )
+
+def tarefas_colega(request):
+
+    headers = {
+        "accept": "application/json"
+    }
+
+    params = {}
+
+    if request.GET.get("jurisdicao"):
+        params["jurisdicao"] = request.GET.get("jurisdicao")
+
+    if request.GET.get("tipo"):
+        params["tipo"] = request.GET.get("tipo")
+
+    try:
+
+        response = requests.get(
+            "https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/contratos/",
+            headers=headers,
+            params=params,
+            verify=False
+        )
+
+        if response.status_code == 200:
+            contratos = response.json()
+            erro = None
+        else:
+            contratos = []
+            erro = f"Erro {response.status_code}"
+
+    except Exception as e:
+        contratos = []
+        erro = str(e)
+
+    return render(
+        request,
+        "portfolio/colega_lista.html",
+        {
+            "contratos": contratos,
+            "erro": erro
+        }
     )
 
 def export_database(request):

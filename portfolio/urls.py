@@ -38,4 +38,14 @@ urlpatterns = [
     views.tarefas_colega,
     name="tarefas_colega"
     ),
+    path(
+    "tarefas-colega/criar/",
+    views.criar_contrato_colega,
+    name="criar_contrato_colega"
+    ),
+    path(
+    "tarefas-colega/<int:id>/",
+    views.contrato_detalhe,
+    name="contrato_detalhe"
+    ),
     ] 

@@ -1,0 +1,60 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}
+Detalhe do Contrato
+{% endblock %}
+
+{% block content %}
+
+<h1>Detalhe do Contrato</h1>
+
+{% if erro %}
+
+    <p style="color:red;">
+        {{ erro }}
+    </p>
+
+{% else %}
+
+    <h2>{{ contrato.titulo }}</h2>
+
+    <p>
+        <strong>ID:</strong>
+        {{ contrato.id }}
+    </p>
+
+    <p>
+        <strong>Tipo:</strong>
+        {{ contrato.tipo }}
+    </p>
+
+    <p>
+        <strong>Jurisdição:</strong>
+        {{ contrato.jurisdicao }}
+    </p>
+
+    <p>
+        <strong>Data Upload:</strong>
+        {{ contrato.data_upload }}
+    </p>
+
+    <p>
+        <strong>Texto Anonimizado:</strong>
+    </p>
+
+    <div style="
+        border:1px solid #444;
+        padding:15px;
+        border-radius:8px;
+        margin-bottom:20px;
+    ">
+        {{ contrato.texto_anonimizado }}
+    </div>
+
+{% endif %}
+
+<a href="{% url 'tarefas_colega' %}">
+    ← Voltar à lista
+</a>
+
+{% endblock %}
