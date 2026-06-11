@@ -4,11 +4,32 @@
 
 {% block content %}
 
+
+<section id="descricao">
+
 <h1>API Externa - Francisco Pearson</h1>
 
 <p>
-    Esta página consome a API RESTful de Contratos.
+    Esta página consome a API RESTful de Contratos desenvolvida por Francisco Pearson.
 </p>
+<div style="
+    margin:20px 0;
+    padding:15px;
+    background:#111;
+    border-radius:8px;
+">
+
+
+</div>
+<p>
+    É possível listar contratos, consultar detalhes, criar, editar e apagar registos através da API externa.
+</p>
+
+</section>
+
+<hr>
+
+<section id="swagger">
 
 <a href="https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/docs"
    target="_blank"
@@ -23,6 +44,10 @@
 ">
     📖 Ver documentação Swagger
 </a>
+
+</section>
+
+<hr>
 
 <a href="{% url 'criar_contrato_colega' %}"
    style="
@@ -39,6 +64,8 @@
 </a>
 
 <hr>
+
+<section id="filtros">
 
 <h2>Filtros</h2>
 
@@ -60,6 +87,8 @@
 
 </form>
 
+</section>
+
 <hr>
 
 {% if erro %}
@@ -69,6 +98,8 @@
 </p>
 
 {% endif %}
+
+<section id="contratos">
 
 <h2>Contratos</h2>
 
@@ -108,9 +139,21 @@
         {{ contrato.texto_anonimizado|truncatechars:250 }}
     </p>
 
-    <a href="{% url 'contrato_detalhe' contrato.id %}">
-        Ver detalhes
-    </a>
+<a href="{% url 'contrato_detalhe' contrato.id %}">
+    🔍 Detalhes
+</a>
+
+|
+
+<a href="{% url 'editar_contrato_colega' contrato.id %}">
+    ✏️ Editar
+</a>
+
+|
+
+<a href="{% url 'apagar_contrato_colega' contrato.id %}">
+    🗑️ Apagar
+</a>
 
 </div>
 
@@ -121,5 +164,9 @@
 </p>
 
 {% endfor %}
+
+</section>
+
+
 
 {% endblock %}

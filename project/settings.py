@@ -3,9 +3,14 @@ from decouple import config
 import dj_database_url
 import os
 import environ
+from dotenv import load_dotenv
 
+
+load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+API_COLEGA_KEY = os.getenv("API_COLEGA_KEY")
 env = environ.Env()
 
 environ.Env.read_env(
@@ -14,8 +19,6 @@ environ.Env.read_env(
 
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
-
-DEBUG = True # config('DEBUG', cast=bool)
 
 
 ALLOWED_HOSTS = [

@@ -48,4 +48,14 @@ urlpatterns = [
     views.contrato_detalhe,
     name="contrato_detalhe"
     ),
-    ] 
+    path(
+    "tarefas-colega/<int:id>/editar/",
+    views.editar_contrato_colega,
+    name="editar_contrato_colega"
+    ),
+    path(
+    'tarefas-colega/apagar/<int:id>/',
+    views.apagar_contrato_colega,
+    name='apagar_contrato_colega'
+    ),
+] 

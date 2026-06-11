@@ -11,6 +11,11 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.management import call_command
 from django.http import HttpResponse
+import urllib3
+urllib3.disable_warnings(
+    urllib3.exceptions.InsecureRequestWarning
+)
+
 
 import io
 from .forms import (
@@ -163,6 +168,107 @@ def tarefas_colega(request):
         {
             "contratos": contratos,
             "erro": erro
+        }
+    )
+
+def editar_contrato_colega(request, id):
+
+    erro = None
+
+    headers = {
+        "accept": "application/json"
+    }
+
+    try:
+
+        response = requests.get(
+            f"https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/contratos/{id}/",
+            headers=headers,
+            verify=False
+        )
+
+        if response.status_code == 200:
+            contrato = response.json()
+        else:
+            contrato = None
+            erro = f"Erro {response.status_code}"
+
+    except Exception as e:
+        contrato = None
+        erro = str(e)
+
+    if request.method == "POST":
+
+        dados = {
+            "titulo": request.POST.get("titulo"),
+            "tipo": request.POST.get("tipo"),
+            "texto_original": request.POST.get("texto_original"),
+            "jurisdicao": request.POST.get("jurisdicao"),
+            "etiqueta_ids": []
+        }
+
+        try:
+
+            headers = {
+                "X-API-Key": "FWo8NeiWN-pHA8aGkK53oDBAZ1N10D53AXwiOHexsf0"
+            }
+
+            response = requests.put(
+                f"https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/contratos/{id}/",
+                json=dados,
+                headers=headers,
+                verify=False
+            )
+
+            if response.status_code in [200, 204]:
+                return redirect("tarefas_colega")
+
+            erro = f"Erro {response.status_code} - {response.text}"
+
+        except Exception as e:
+            erro = str(e)
+
+    return render(
+        request,
+        "portfolio/contrato_editar.html",
+        {
+            "contrato": contrato,
+            "erro": erro
+        }
+    )
+
+def apagar_contrato_colega(request, id):
+
+    api_url = (
+        f"https://francisco-pearson-22308485.pw.deisi.ulusofona.pt"
+        f"/contratos/api/contratos/{id}/"
+    )
+
+    headers = {
+        "X-API-Key": "FWo8NeiWN-pHA8aGkK53oDBAZ1N10D53AXwiOHexsf0"
+    }
+
+    erro = None
+
+    if request.method == "POST":
+
+        response = requests.delete(
+            api_url,
+            headers=headers,
+            verify=True
+        )
+
+        if response.status_code in [200, 204]:
+            return redirect('tarefas_colega')
+
+        erro = f"Erro {response.status_code}"
+
+    return render(
+        request,
+        'portfolio/apagar_contrato.html',
+        {
+            'id': id,
+            'erro': erro
         }
     )
 
