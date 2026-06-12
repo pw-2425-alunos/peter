@@ -153,6 +153,15 @@ def tarefas_colega(request):
 
         if response.status_code == 200:
             contratos = response.json()
+            q = request.GET.get("q")
+
+            if q:
+                contratos = [
+                contrato
+                for contrato in contratos
+                if q.lower() in contrato.get("titulo", "").lower()
+                ]
+
             erro = None
         else:
             contratos = []

@@ -71,6 +71,12 @@
 
 <form method="get">
 
+    <label>Pesquisar:</label>
+    <input type="text"
+           name="q"
+           placeholder="Título do contrato..."
+           value="{{ request.GET.q }}">
+
     <label>Jurisdição:</label>
     <input type="text"
            name="jurisdicao"
