@@ -7,12 +7,12 @@
 
 <section id="descricao">
 
-<h1>API Externa - Francisco Pearson</h1>
+    <h1>API Externa - Francisco Pearson</h1>
 
-<p>
-    Esta página consome a API RESTful de Contratos desenvolvida por Francisco Pearson.
-</p>
-<div style="
+    <p>
+        Esta página consome a API RESTful de Contratos desenvolvida por Francisco Pearson.
+    </p>
+    <div style="
     margin:20px 0;
     padding:15px;
     background:#111;
@@ -20,10 +20,10 @@
 ">
 
 
-</div>
-<p>
-    É possível listar contratos, consultar detalhes, criar, editar e apagar registos através da API externa.
-</p>
+    </div>
+    <p>
+        É possível listar contratos, consultar detalhes, criar, editar e apagar registos através da API externa.
+    </p>
 
 </section>
 
@@ -31,9 +31,7 @@
 
 <section id="swagger">
 
-<a href="https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/docs"
-   target="_blank"
-   style="
+    <a href="https://francisco-pearson-22308485.pw.deisi.ulusofona.pt/contratos/api/docs" target="_blank" style="
         display:inline-block;
         padding:12px 24px;
         background:#28a745;
@@ -42,15 +40,14 @@
         border-radius:8px;
         margin-bottom:20px;
 ">
-    📖 Ver documentação Swagger
-</a>
+        📖 Ver documentação Swagger
+    </a>
 
 </section>
 
 <hr>
 
-<a href="{% url 'criar_contrato_colega' %}"
-   style="
+<a href="{% url 'criar_contrato_colega' %}" style="
         display:inline-block;
         padding:12px 24px;
         background:#0066cc;
@@ -67,31 +64,24 @@
 
 <section id="filtros">
 
-<h2>Filtros</h2>
+    <h2>Filtros</h2>
 
-<form method="get">
+    <form method="get">
 
-    <label>Pesquisar:</label>
-    <input type="text"
-           name="q"
-           placeholder="Título do contrato..."
-           value="{{ request.GET.q }}">
+        <label>Pesquisar:</label>
+        <input type="text" name="q" placeholder="Título do contrato..." value="{{ request.GET.q }}">
 
-    <label>Jurisdição:</label>
-    <input type="text"
-           name="jurisdicao"
-           value="{{ request.GET.jurisdicao }}">
+        <label>Jurisdição:</label>
+        <input type="text" name="jurisdicao" value="{{ request.GET.jurisdicao }}">
 
-    <label>Tipo:</label>
-    <input type="text"
-           name="tipo"
-           value="{{ request.GET.tipo }}">
+        <label>Tipo:</label>
+        <input type="text" name="tipo" value="{{ request.GET.tipo }}">
 
-    <button type="submit">
-        Filtrar
-    </button>
+        <button type="submit">
+            Filtrar
+        </button>
 
-</form>
+    </form>
 
 </section>
 
@@ -107,74 +97,72 @@
 
 <section id="contratos">
 
-<h2>Lista de Contratos</h2>
+    <h2>Lista de Contratos</h2>
 
-<div class="contador-contratos">
-    <strong>Total de contratos encontrados:</strong>
-    {{ contratos|length }}
-</div>
+    <div class="contador-contratos">
+        <strong>Total de contratos encontrados:</strong>
+        {{ contratos|length }}
+    </div>
 
-{% for contrato in contratos %}
+    {% for contrato in contratos %}
 
-<div style="
+    <div style="
         border:1px solid #444;
         padding:15px;
         margin-bottom:15px;
         border-radius:8px;
 ">
 
-    <h3>{{ contrato.titulo }}</h3>
+        <h3>{{ contrato.titulo }}</h3>
+
+        <p>
+            <strong>Tipo:</strong>
+
+            <span class="badge-tipo">
+                {{ contrato.tipo }}
+            </span>
+        </p>
+
+        <p>
+            <strong>Jurisdição:</strong>
+            {{ contrato.jurisdicao }}
+        </p>
+
+        <p>
+            <strong>Data:</strong>
+            {{ contrato.data_upload }}
+        </p>
+
+        <p>
+            <strong>Texto:</strong>
+            {{ contrato.texto_anonimizado|truncatechars:250 }}
+        </p>
+
+        <a href="{% url 'contrato_detalhe' contrato.id %}">
+            🔍 Detalhes
+        </a>
+
+        |
+
+        <a href="{% url 'editar_contrato_colega' contrato.id %}">
+            ✏️ Editar
+        </a>
+
+        |
+
+        <a href="{% url 'apagar_contrato_colega' contrato.id %}">
+            🗑️ Apagar
+        </a>
+
+    </div>
+
+    {% empty %}
 
     <p>
-        <strong>ID:</strong>
-        {{ contrato.id }}
+        Nenhum contrato encontrado.
     </p>
 
-    <p>
-        <strong>Tipo:</strong>
-        {{ contrato.tipo }}
-    </p>
-
-    <p>
-        <strong>Jurisdição:</strong>
-        {{ contrato.jurisdicao }}
-    </p>
-
-    <p>
-        <strong>Data:</strong>
-        {{ contrato.data_upload }}
-    </p>
-
-    <p>
-        <strong>Texto:</strong>
-        {{ contrato.texto_anonimizado|truncatechars:250 }}
-    </p>
-
-<a href="{% url 'contrato_detalhe' contrato.id %}">
-    🔍 Detalhes
-</a>
-
-|
-
-<a href="{% url 'editar_contrato_colega' contrato.id %}">
-    ✏️ Editar
-</a>
-
-|
-
-<a href="{% url 'apagar_contrato_colega' contrato.id %}">
-    🗑️ Apagar
-</a>
-
-</div>
-
-{% empty %}
-
-<p>
-    Nenhum contrato encontrado.
-</p>
-
-{% endfor %}
+    {% endfor %}
 
 </section>
 

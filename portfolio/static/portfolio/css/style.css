@@ -275,3 +275,20 @@ body {
     color: #ffffff;
     font-weight: bold;
 }
+
+.badge-tipo {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background: #1db954;
+
+    color: black;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
