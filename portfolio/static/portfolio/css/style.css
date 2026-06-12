@@ -262,3 +262,16 @@ body {
 
     background: linear-gradient(135deg, #00e676, #69f0ae);
 }
+
+.contador-contratos {
+    margin: 10px 0 20px 0;
+    padding: 10px 15px;
+
+    background: #181818;
+    border-left: 4px solid #1db954;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+    font-weight: bold;
+}

@@ -107,7 +107,12 @@
 
 <section id="contratos">
 
-<h2>Contratos</h2>
+<h2>Lista de Contratos</h2>
+
+<div class="contador-contratos">
+    <strong>Total de contratos encontrados:</strong>
+    {{ contratos|length }}
+</div>
 
 {% for contrato in contratos %}
 
