@@ -683,7 +683,7 @@ def unidade_curricular_detail(request, id):
             ("ECTS", obj.ects),
             ("Apresentação", obj.apresentacao),
             ("Programa", obj.programa),
-            ("Objetivos", obj.objectivos),
+            ("Objetivos", obj.objectivo),
             ("Website", obj.url_website),
         ],
         related_sections=[
