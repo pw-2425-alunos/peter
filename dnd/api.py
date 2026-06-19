@@ -40,20 +40,32 @@ class AuthAPIKey(APIKeyHeader):
         return None
 
 # GET UM
-@router.get("/campanhas/{campanha_id}", response=CampanhaSchema)
+@router.get(
+    "/campanhas/{campanha_id}",
+    response=CampanhaSchema,
+    tags=["Campanhas"]
+)
 def obter_campanha(request, campanha_id: int):
     return Campanha.objects.get(id=campanha_id)
 
 
 # CREATE
-@router.post("/campanhas", response=CampanhaSchema)
+@router.post(
+    "/campanhas",
+    response=CampanhaSchema,
+    tags=["Campanhas"]
+)
 def criar_campanha(request, payload: CampanhaCreateSchema):
     campanha = Campanha.objects.create(**payload.dict())
     return campanha
 
 
 # UPDATE
-@router.put("/campanhas/{campanha_id}", response=CampanhaSchema)
+@router.put(
+    "/campanhas/{campanha_id}",
+    response=CampanhaSchema,
+    tags=["Campanhas"]
+)
 def atualizar_campanha(request, campanha_id: int, payload: CampanhaCreateSchema):
     campanha = Campanha.objects.get(id=campanha_id)
 
@@ -69,7 +81,10 @@ def atualizar_campanha(request, campanha_id: int, payload: CampanhaCreateSchema)
 
 
 # DELETE
-@router.delete("/campanhas/{campanha_id}")
+@router.delete(
+    "/campanhas/{campanha_id}",
+    tags=["Campanhas"]
+)
 def apagar_campanha(request, campanha_id: int):
     campanha = Campanha.objects.get(id=campanha_id)
     campanha.delete()
@@ -77,7 +92,11 @@ def apagar_campanha(request, campanha_id: int):
     return {"success": True}
 
 # GET ALL + FILTROS + PAGINACAO
-@router.get("/campanhas", response=list[CampanhaSchema])
+@router.get(
+    "/campanhas",
+    response=list[CampanhaSchema],
+    tags=["Campanhas"]
+)
 def listar_campanhas(
     request,
     ativa: bool | None = None,
@@ -102,17 +121,29 @@ def listar_campanhas(
 # PERSONAGENS
 # =========================
 
-@router.get("/personagens", response=list[PersonagemSchema])
+@router.get(
+    "/personagens",
+    response=list[PersonagemSchema],
+    tags=["Personagens"]
+)
 def listar_personagens(request):
     return Personagem.objects.all()
 
 
-@router.get("/personagens/{personagem_id}", response=PersonagemSchema)
+@router.get(
+    "/personagens/{personagem_id}",
+    response=PersonagemSchema,
+    tags=["Personagens"]
+)
 def obter_personagem(request, personagem_id: int):
     return Personagem.objects.get(id=personagem_id)
 
 
-@router.post("/personagens", response=PersonagemSchema)
+@router.post(
+    "/personagens",
+    response=PersonagemSchema,
+    tags=["Personagens"]
+)
 def criar_personagem(request, payload: PersonagemCreateSchema):
 
     personagem = Personagem.objects.create(
@@ -127,7 +158,11 @@ def criar_personagem(request, payload: PersonagemCreateSchema):
     return personagem
 
 
-@router.put("/personagens/{personagem_id}", response=PersonagemSchema)
+@router.put(
+    "/personagens/{personagem_id}",
+    response=PersonagemSchema,
+    tags=["Personagens"]
+)
 def atualizar_personagem(
     request,
     personagem_id: int,
@@ -148,9 +183,10 @@ def atualizar_personagem(
     return personagem
     
 
-
-
-@router.delete("/personagens/{personagem_id}")
+@router.delete(
+    "/personagens/{personagem_id}",
+    tags=["Personagens"]
+)
 def apagar_personagem(request, personagem_id: int):
 
     personagem = Personagem.objects.get(id=personagem_id)
@@ -162,17 +198,31 @@ def apagar_personagem(request, personagem_id: int):
 # MISSOES
 # =========================
 
-@router.get("/missoes", response=list[MissaoSchema])
+@router.get(
+    "/missoes",
+    response=list[MissaoSchema],
+    tags=["Missões"]
+)
 def listar_missoes(request):
     return Missao.objects.all()
 
 
-@router.get("/missoes/{missao_id}", response=MissaoSchema)
+@router.get(
+    "/missoes/{missao_id}",
+    response=MissaoSchema,
+    tags=["Missões"]
+)
+
 def obter_missao(request, missao_id: int):
     return Missao.objects.get(id=missao_id)
 
 
-@router.post("/missoes", response=MissaoSchema)
+@router.post(
+    "/missoes",
+    response=MissaoSchema,
+    tags=["Missões"]
+)
+
 def criar_missao(request, payload: MissaoCreateSchema):
 
     missao = Missao.objects.create(
@@ -186,7 +236,11 @@ def criar_missao(request, payload: MissaoCreateSchema):
     return missao
 
 
-@router.put("/missoes/{missao_id}", response=MissaoSchema)
+@router.put(
+    "/missoes/{missao_id}",
+    response=MissaoSchema,
+    tags=["Missões"]
+)
 def atualizar_missao(
     request,
     missao_id: int,
@@ -206,7 +260,10 @@ def atualizar_missao(
     return missao
 
 
-@router.delete("/missoes/{missao_id}")
+@router.delete(
+    "/missoes/{missao_id}",
+    tags=["Missões"]
+)
 def apagar_missao(request, missao_id: int):
 
     missao = Missao.objects.get(id=missao_id)
@@ -218,17 +275,29 @@ def apagar_missao(request, missao_id: int):
 # MUSICAS
 # =========================
 
-@router.get("/musicas", response=list[MusicaSchema])
+@router.get(
+    "/musicas",
+    response=list[MusicaSchema],
+    tags=["Músicas Ambiente"]
+)
 def listar_musicas(request):
     return MusicaAmbiente.objects.all()
 
 
-@router.get("/musicas/{musica_id}", response=MusicaSchema)
+@router.get(
+    "/musicas/{musica_id}",
+    response=MusicaSchema,
+    tags=["Músicas Ambiente"]
+)
 def obter_musica(request, musica_id: int):
     return MusicaAmbiente.objects.get(id=musica_id)
 
 
-@router.post("/musicas", response=MusicaSchema)
+@router.post(
+    "/musicas",
+    response=MusicaSchema,
+    tags=["Músicas Ambiente"]
+)
 def criar_musica(request, payload: MusicaCreateSchema):
 
     musica = MusicaAmbiente.objects.create(
@@ -243,7 +312,11 @@ def criar_musica(request, payload: MusicaCreateSchema):
     return musica
 
 
-@router.put("/musicas/{musica_id}", response=MusicaSchema)
+@router.put(
+    "/musicas/{musica_id}",
+    response=MusicaSchema,
+    tags=["Músicas Ambiente"]
+)
 def atualizar_musica(
     request,
     musica_id: int,
@@ -264,7 +337,10 @@ def atualizar_musica(
     return musica
 
 
-@router.delete("/musicas/{musica_id}")
+@router.delete(
+    "/musicas/{musica_id}",
+    tags=["Músicas Ambiente"]
+)
 def apagar_musica(request, musica_id: int):
 
     musica = MusicaAmbiente.objects.get(id=musica_id)
