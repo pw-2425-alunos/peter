@@ -31,10 +31,12 @@ class UnidadeCurricular(models.Model):
     imagem = models.ImageField(upload_to='unidades_curriculares/', blank=True, null=True)
     url_website = models.URLField()
 
+    class Meta:
+        verbose_name = "Unidade curricular"
+        verbose_name_plural = "Unidades curriculares"
+
     def __str__(self):
         return self.nome
-
-
 
 
 class Tecnologia(models.Model):
