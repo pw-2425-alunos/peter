@@ -937,7 +937,12 @@ def midia_detail(request, id):
 
     file_url = None
     try:
-        file_url = obj.ficheiro.url
+        ficheiro_guardado = str(obj.ficheiro)
+        
+        if ficheiro_guardado.startswith("http"):
+            file_url = ficheiro_guardado
+        else:
+            file_url = obj.ficheiro.url
     except Exception:
         file_url = None
 
