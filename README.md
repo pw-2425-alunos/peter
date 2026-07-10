@@ -2,9 +2,19 @@
 
 Este repositório serve como um template base para projetos Django, permitindo iniciar rapidamente um novo projeto com uma estrutura pré-configurada.
 
-## Propósito
+# Portfólio
 
-O `django-empty` foi criado para ser um ponto de partida para projetos Django. Pode clonar este repositório e importar o seu projeto Django existente, aproveitando a configuração inicial já preparada.
+Portfólio académico.
+
+# Stack
+
+Django
+Django Ninja
+PostgreSQL (Neon)
+Cloudinary
+Docker
+GitHub Actions
+Deploy automático em peter.pw.deisi.ulusofona.pt
 
 ## Conteúdo
 
