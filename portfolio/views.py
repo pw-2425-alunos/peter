@@ -102,7 +102,7 @@ def criar_contrato_colega(request):
         try:
 
             headers = {
-                "X-API-Key": "FWo8NeiWN-pHA8aGkK53oDBAZ1N10D53AXwiOHexsf0"
+                "X-API-Key": "settings.API_COLEGA_KEY"
                 }
 
             response = requests.post(
@@ -226,7 +226,7 @@ def editar_contrato_colega(request, id):
         try:
 
             headers = {
-                "X-API-Key": "FWo8NeiWN-pHA8aGkK53oDBAZ1N10D53AXwiOHexsf0"
+                "X-API-Key": "settings.API_COLEGA_KEY"
             }
 
             response = requests.put(
@@ -261,7 +261,7 @@ def apagar_contrato_colega(request, id):
     )
 
     headers = {
-        "X-API-Key": "FWo8NeiWN-pHA8aGkK53oDBAZ1N10D53AXwiOHexsf0"
+        "X-API-Key": "settings.API_COLEGA_KEY"
     }
 
     erro = None
@@ -271,7 +271,7 @@ def apagar_contrato_colega(request, id):
         response = requests.delete(
             api_url,
             headers=headers,
-            verify=True
+            verify=False
         )
 
         if response.status_code in [200, 204]:
