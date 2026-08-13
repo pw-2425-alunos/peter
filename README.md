@@ -9,7 +9,7 @@ Além da componente de portfólio, o projeto inclui uma API RESTful desenvolvida
 🌐 Projeto online
 
 Portfólio:
-https://peter.pw.deisi.ulusofona.pt/
+http://peter.pw.deisi.ulusofona.pt/
 
 🛠️ Tecnologias
 Backend
@@ -188,4 +188,4 @@ Projeto em desenvolvimento e evolução contínua durante a Licenciatura em Enge
 Pedro Tiago Caeiro Santos
 
 Portfólio:
-https://peter.pw.deisi.ulusofona.pt/
+http://peter.pw.deisi.ulusofona.pt
